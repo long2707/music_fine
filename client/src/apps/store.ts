@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
+import appStateSlice from "./features/appStateSlice";
 import themeModeSlice from "./features/themeModeSlice";
 
 const store = configureStore({
   reducer: {
     themeMode: themeModeSlice,
+    appState: appStateSlice,
   },
 });
 

@@ -77,7 +77,12 @@ const Header = () => {
           >
             <IconButton
               color="inherit"
-              sx={{ mr: 2, display: { xs: "block", md: "none" } }}
+              sx={{
+                mr: 2,
+                display: { xs: "block", md: "none" },
+                lineHeight: "0",
+              }}
+              onClick={toggleSidebar}
             >
               <MenuIcon />
             </IconButton>
@@ -107,7 +112,7 @@ const Header = () => {
               >
                 <SearchOutlinedIcon />
 
-                <InputBase placeholder="Search..." />
+                <InputBase sx={{ flexGrow: "1" }} placeholder="Search..." />
               </Box>
             </Box>
             <IconButton

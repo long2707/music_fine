@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import HomeIcon from "@mui/icons-material/Home";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import WidgetsOutlinedIcon from "@mui/icons-material/WidgetsOutlined";
 import LibraryMusicOutlinedIcon from "@mui/icons-material/LibraryMusicOutlined";
 
@@ -13,20 +13,20 @@ type menuType = {
 const menu: menuType[] = [
   {
     display: "home",
-    path: "/",
-    icon: <HomeIcon />,
+    path: "",
+    icon: <HomeOutlinedIcon sx={{ fontSize: "1.875rem" }} />,
     state: "home",
   },
   {
     display: "browse",
-    path: "/browse",
-    icon: <WidgetsOutlinedIcon />,
+    path: "browse",
+    icon: <WidgetsOutlinedIcon sx={{ fontSize: "1.875rem" }} />,
     state: "browse",
   },
   {
     display: "album",
-    path: "/album",
-    icon: <LibraryMusicOutlinedIcon />,
+    path: "album",
+    icon: <LibraryMusicOutlinedIcon sx={{ fontSize: "1.875rem" }} />,
     state: "album",
   },
 ];
