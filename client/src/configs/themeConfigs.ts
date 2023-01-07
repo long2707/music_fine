@@ -12,13 +12,15 @@ const themeConfigs = {
         ? {
             primary: {
               main: "#E57886",
-              constractText: "#000",
+              contractsText: "#000",
             },
             secondary: {
               main: "#E5786E",
+              contractsText: "#a0aab4",
             },
             background: {
               default: "#FFEEDE",
+              secondary: "#fff",
             },
           }
         : {
@@ -32,6 +34,7 @@ const themeConfigs = {
             },
             background: {
               default: "#0F172A",
+              secondary: "#0F172A",
             },
           };
     return createTheme({
@@ -41,6 +44,7 @@ const themeConfigs = {
           defaultProps: { disableElevation: true },
         },
       },
+      typography: { fontFamily: ["Rubik", "sans-serif"].join(",") },
     });
   },
 };

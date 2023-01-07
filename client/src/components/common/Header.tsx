@@ -40,7 +40,7 @@ const ScrollAppBar = ({ children, window }: Props) => {
         : themeMode === themeModes.light
         ? "primary.constractText"
         : "text.primary",
-      backgroundColor: trigger ? "background.paper" : "transparent",
+      backgroundColor: trigger ? "background.default" : "transparent",
       width: { xs: "100%", md: `calc(100% - ${uiConfigs.width.sidebarWidth})` },
       borderBottom: "1px solid #ccc",
     },
@@ -60,7 +60,7 @@ const Header = () => {
       themeMode === themeModes.light ? themeModes.dark : themeModes.light;
     dispatch(setThemeMode(theme));
   };
-  console.log(openSidebar);
+
   return (
     <>
       <Sidebar open={openSidebar} toggleSidebar={toggleSidebar} />
@@ -77,7 +77,12 @@ const Header = () => {
           >
             <IconButton
               color="inherit"
-              sx={{ mr: 2, display: { xs: "block", md: "none" } }}
+              sx={{
+                mr: 2,
+                display: { xs: "block", md: "none" },
+                lineHeight: "0",
+              }}
+              onClick={toggleSidebar}
             >
               <MenuIcon />
             </IconButton>
@@ -107,7 +112,7 @@ const Header = () => {
               >
                 <SearchOutlinedIcon />
 
-                <InputBase placeholder="Search..." />
+                <InputBase sx={{ flexGrow: "1" }} placeholder="Search..." />
               </Box>
             </Box>
             <IconButton

@@ -1,5 +1,6 @@
-import { ReactNode, useEffect } from "react";
-import { Header } from "../common";
+import React, { ReactNode } from "react";
+import { useDispatch } from "react-redux";
+import { setAppState } from "../../apps/features/appStateSlice";
 
 const PageWrapper = ({
   state,
@@ -8,13 +9,12 @@ const PageWrapper = ({
   state: string;
   children: ReactNode;
 }) => {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  //   useEffect(() => {
-  //     if (props.state) {
-  //       dispatch(setAppState(props.state));
-  //     }
-  //   }, [dispatch, props]);
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+    dispatch(setAppState(state));
+  }, [dispatch, state]);
 
   return <>{children}</>;
 };
