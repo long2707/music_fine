@@ -12,7 +12,7 @@ const themeConfigs = {
         ? {
             primary: {
               main: "#E57886",
-              constractText: "#000",
+              contractsText: "#000",
             },
             secondary: {
               main: "#E5786E",

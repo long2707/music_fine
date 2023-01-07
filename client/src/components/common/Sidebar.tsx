@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../apps/store";
 import { setAppState } from "../../apps/features/appStateSlice";
 import { themeModes } from "../../configs/themeConfigs";
+import useLocalStorge from "../../hooks/useLocalStorge";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const logo = require("../../assets/images/music.png");
 
@@ -26,12 +27,13 @@ const Sidebar = ({
   open: boolean;
   toggleSidebar: (active: boolean) => void;
 }) => {
-  const { appState } = useSelector((state: RootState) => state.appState);
+  const appState = useSelector((state: RootState) => state.appState.appState);
   const { themeMode } = useSelector((state: RootState) => state.themeMode);
 
-  console.log(appState);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const getSong = useLocalStorge("sing");
   const drawer = (
     <>
       <Toolbar />
@@ -40,7 +42,11 @@ const Sidebar = ({
           <ListItemButton
             key={item.display}
             onClick={() => {
-              navigate(`/${item.path}`);
+              if (item.path === "browse") {
+                navigate(`/${item.path}/${getSong.getItem()}`);
+              } else {
+                navigate(`/${item.path}`);
+              }
               dispatch(setAppState(item.state));
               toggleSidebar(false);
             }}
@@ -86,7 +92,7 @@ const Sidebar = ({
         open
         variant="permanent"
         sx={{
-          width: { sm: uiConfigs.width.sidebarWidth },
+          width: { md: uiConfigs.width.sidebarWidth },
           "& .MuiDrawer-paper": {
             backgroundColor:
               themeMode === themeModes.light

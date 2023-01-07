@@ -17,7 +17,7 @@ const appRoutes: RouteType[] = [
   },
   {
     element: <BrowsePage />,
-    path: "/browse",
+    path: "/browse/:id",
     state: "browse",
   },
   {

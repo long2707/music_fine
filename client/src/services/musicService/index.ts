@@ -2,7 +2,7 @@ import axiosClient from "../axiosClient";
 import MUSIC_API from "./url";
 
 class MusicService {
-  getMusicHome() {
+  getMusicPlayListHome() {
     return axiosClient.get(MUSIC_API.HOME_URL);
   }
   getMusicTop100() {
