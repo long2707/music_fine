@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from "@mui/material";
-import { IMusicType, IPlayType } from "../../constants/interface";
+import { IMusicType, IPlayType } from "constants/interface";
 import MusicGridItem from "./MusicGridItem";
 
 const MusicGird = ({ data }: any) => {

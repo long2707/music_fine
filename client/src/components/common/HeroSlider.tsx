@@ -4,9 +4,9 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { setLoading } from "../../apps/features/appStateSlice";
-import useLocalStorge from "../../hooks/useLocalStorge";
-import { MusicService } from "../../services";
+import { setLoading } from "apps/features/appStateSlice";
+import useLocalStorge from "hooks/useLocalStorge";
+import { MusicService } from "services";
 
 interface IitemType {
   encodeId: string;
@@ -85,45 +85,45 @@ const HeroSlider = () => {
           >
             {dataSlider?.items.all?.map((item: IitemType) => (
               <SwiperSlide key={item.encodeId}>
-                <Link
+                {/* <Link
                   to={`/browse/${item.encodeId}`}
                   onClick={() => {
                     setSingLocalstorge.setItem(item?.encodeId);
                   }}
+                > */}
+                <img
+                  src={item.thumbnailM}
+                  style={{ borderRadius: "10px" }}
+                  width="100%"
+                  height={"100%"}
+                />
+                <Typography
+                  sx={{
+                    fontWeight: "500",
+                    fontSize: "1.225rem",
+                    display: "inline-block",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    width: "100%",
+                    whiteSpace: "nowrap",
+                    color: "primary.contractsText",
+                  }}
                 >
-                  <img
-                    src={item.thumbnailM}
-                    style={{ borderRadius: "10px" }}
-                    width="100%"
-                    height={"100%"}
-                  />
-                  <Typography
-                    sx={{
-                      fontWeight: "500",
-                      fontSize: "1.225rem",
-                      display: "inline-block",
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      width: "100%",
-                      whiteSpace: "nowrap",
-                      color: "primary.contractsText",
-                    }}
-                  >
-                    {item.title}
-                  </Typography>
-                  <Typography
-                    color={"#615b5b"}
-                    sx={{
-                      display: "inline-block",
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      width: "100%",
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    {item.artistsNames}
-                  </Typography>
-                </Link>
+                  {item.title}
+                </Typography>
+                <Typography
+                  color={"#615b5b"}
+                  sx={{
+                    display: "inline-block",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    width: "100%",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {item.artistsNames}
+                </Typography>
+                {/* </Link> */}
               </SwiperSlide>
             ))}
           </Swiper>

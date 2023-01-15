@@ -10,15 +10,15 @@ import {
   Typography,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import uiConfigs from "../../configs/uiConfigs";
-import menu from "../../configs/menuConfigs";
+import uiConfigs from "configs/uiConfigs";
+import menu from "configs/menuConfigs";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../apps/store";
-import { setAppState } from "../../apps/features/appStateSlice";
-import { themeModes } from "../../configs/themeConfigs";
-import useLocalStorge from "../../hooks/useLocalStorge";
+import { RootState } from "apps/store";
+import { setAppState } from "apps/features/appStateSlice";
+import { themeModes } from "configs/themeConfigs";
+import useLocalStorge from "hooks/useLocalStorge";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const logo = require("../../assets/images/music.png");
+const logo = require("assets/images/music.png");
 
 const Sidebar = ({
   open,
@@ -27,7 +27,7 @@ const Sidebar = ({
   open: boolean;
   toggleSidebar: (active: boolean) => void;
 }) => {
-  const appState = useSelector((state: RootState) => state.appState.appState);
+  const { appState } = useSelector((state: RootState) => state.appState);
   const { themeMode } = useSelector((state: RootState) => state.themeMode);
 
   const dispatch = useDispatch();
@@ -37,7 +37,7 @@ const Sidebar = ({
   const drawer = (
     <>
       <Toolbar />
-      <List disablePadding>
+      <List disablePadding={true}>
         {menu.map((item) => (
           <ListItemButton
             key={item.display}
@@ -89,6 +89,7 @@ const Sidebar = ({
     <Box component={"nav"} position="relative">
       {/*  width >= 900px */}
       <Drawer
+        disableScrollLock={true}
         open
         variant="permanent"
         sx={{
@@ -113,6 +114,7 @@ const Sidebar = ({
 
       {/* width <900px */}
       <Drawer
+        disableScrollLock={true}
         variant="temporary"
         open={open}
         onClose={toggleSidebar}

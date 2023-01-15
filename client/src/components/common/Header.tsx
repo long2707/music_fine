@@ -13,11 +13,11 @@ import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 
 import { Box } from "@mui/system";
-import { RootState } from "../../apps/store";
-import { themeModes } from "../../configs/themeConfigs";
+import { RootState } from "apps/store";
+import { themeModes } from "configs/themeConfigs";
 import Sidebar from "./Sidebar";
-import uiConfigs from "../../configs/uiConfigs";
-import { setThemeMode } from "../../apps/features/themeModeSlice";
+import uiConfigs from "configs/uiConfigs";
+import { setThemeMode } from "apps/features/themeModeSlice";
 
 interface Props {
   window?: () => Window;
