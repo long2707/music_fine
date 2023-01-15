@@ -1,8 +1,8 @@
 import { Box } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "../../apps/store";
-import "../../assets/styles/loading.css";
+import { RootState } from "apps/store";
+import "assets/styles/loading.css";
 
 const GlobalLoading = () => {
   const loading = useSelector((state: RootState) => state.appState.loading);

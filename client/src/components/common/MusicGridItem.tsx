@@ -1,7 +1,7 @@
 import { Typography, Box } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
-import useLocalStorge from "../../hooks/useLocalStorge";
+import useLocalStorge from "hooks/useLocalStorge";
 
 const MusicGridItem = ({ item }: any) => {
   const setSingLocalstorge = useLocalStorge("sing");

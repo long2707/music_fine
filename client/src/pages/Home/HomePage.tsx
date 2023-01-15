@@ -1,23 +1,24 @@
+import { Box } from "@mui/material";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { setLoading } from "../../apps/features/appStateSlice";
+import { setLoading } from "apps/features/appStateSlice";
 
-import { HeroSlider } from "../../components/common";
-import MusicGird from "../../components/common/MusicGird";
-import { MusicService } from "../../services";
+import { HeroSlider } from "components/common";
+import MusicGird from "components/common/MusicGird";
+import { MusicService } from "services";
 
 interface IsectionType {
   sectionType: string;
 }
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   const [dataList, setDataList] = React.useState<[]>([]);
   const dispatch = useDispatch();
 
   React.useEffect(() => {
     const getDataNewRelease = async () => {
       dispatch(setLoading(true));
-      const { data } = await (await MusicService.getMusicPlayListHome()).data;
+      const { data } = (await MusicService.getMusicPlayListHome()).data;
       if (data) {
         const dataListHome = data?.items.filter(
           (e: IsectionType) => e.sectionType === "playlist"
@@ -34,7 +35,9 @@ const HomePage = () => {
   return (
     <>
       <HeroSlider />
-      <MusicGird data={dataList} />
+      <Box sx={{ maxWidth: "1366px", margin: "auto", padding: 2 }}>
+        <MusicGird data={dataList} />
+      </Box>
     </>
   );
 };

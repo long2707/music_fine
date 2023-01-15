@@ -3,12 +3,12 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import WidgetsOutlinedIcon from "@mui/icons-material/WidgetsOutlined";
 import LibraryMusicOutlinedIcon from "@mui/icons-material/LibraryMusicOutlined";
 
-type menuType = {
+interface menuType {
   display: string;
   path?: string;
   icon?: ReactNode;
   state: string;
-};
+}
 
 const menu: menuType[] = [
   {

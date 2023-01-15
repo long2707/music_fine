@@ -1,12 +1,12 @@
 import { ReactNode } from "react";
 import { AlbumPage, AritstsPage, BrowsePage, HomePage } from "../pages";
 
-type RouteType = {
+interface RouteType {
   element: ReactNode;
   state: string;
   index?: boolean;
   path?: string;
-};
+}
 
 const appRoutes: RouteType[] = [
   {
