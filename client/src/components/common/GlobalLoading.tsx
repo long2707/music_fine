@@ -17,11 +17,11 @@ const GlobalLoading = () => {
             width: "100%",
             height: "100vh",
             position: "fixed",
-            backgroundColor: "#FFEEDE",
             zIndex: "9999",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            bgcolor: "background.default",
           }}
         >
           <div className="lds-ring">

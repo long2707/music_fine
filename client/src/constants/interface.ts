@@ -11,7 +11,10 @@ export interface IPlayType extends IMusicType {
   sortDescription?: string;
 }
 
-export interface ISongAudio extends IMusicType {
+export interface ISongAudio {
+  encodeId?: string;
+  infoSong?: {};
   currentTime: number;
   srcAudio: string;
+  duration?: number;
 }

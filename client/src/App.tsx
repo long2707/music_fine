@@ -11,11 +11,12 @@ import PageWrapper from "components/Layout/PageWrapper";
 import themeConfigs from "configs/themeConfigs";
 import useLocalStorge from "hooks/useLocalStorge";
 import appRoutes from "routes/appRoutes";
+import { LOCAL_STORAGE } from "constants/enum";
 
 const Error404 = React.lazy(() => import("pages/404"));
 const App: React.FC = () => {
   const { themeMode } = useSelector((state: RootState) => state.themeMode);
-  const setSongLocal = useLocalStorge("sing");
+  const setSongLocal = useLocalStorge(LOCAL_STORAGE.ALBUM);
   React.useEffect(() => {
     if (!setSongLocal.getItem()) {
       setSongLocal.setItem("Z6U9IW09");

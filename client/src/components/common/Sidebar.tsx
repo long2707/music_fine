@@ -17,6 +17,7 @@ import { RootState } from "apps/store";
 import { setAppState } from "apps/features/appStateSlice";
 import { themeModes } from "configs/themeConfigs";
 import useLocalStorge from "hooks/useLocalStorge";
+import { LOCAL_STORAGE } from "constants/enum";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const logo = require("assets/images/music.png");
 
@@ -33,7 +34,7 @@ const Sidebar = ({
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const getSong = useLocalStorge("sing");
+  const getSong = useLocalStorge(LOCAL_STORAGE.ALBUM);
   const drawer = (
     <>
       <Toolbar />
