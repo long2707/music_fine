@@ -1,11 +1,12 @@
 import { Box, Toolbar, Typography } from "@mui/material";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { setLoading } from "apps/features/appStateSlice";
-import useLocalStorge from "hooks/useLocalStorge";
+// import useLocalStorge from "hooks/useLocalStorge";
+// import { LOCAL_STORAGE } from "constants/enum";
 import { MusicService } from "services";
 
 interface IitemType {
@@ -22,7 +23,7 @@ const HeroSlider = () => {
 
   const dispatch = useDispatch();
 
-  const setSingLocalstorge = useLocalStorge("sing");
+  // const setSingLocalstorge = useLocalStorge(LOCAL_STORAGE.SING);
 
   React.useEffect(() => {
     const getDataNewRelease = async () => {

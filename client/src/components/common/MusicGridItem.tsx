@@ -2,9 +2,10 @@ import { Typography, Box } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import useLocalStorge from "hooks/useLocalStorge";
+import { LOCAL_STORAGE } from "constants/enum";
 
 const MusicGridItem = ({ item }: any) => {
-  const setSingLocalstorge = useLocalStorge("sing");
+  const setSingLocalstorge = useLocalStorge(LOCAL_STORAGE.ALBUM);
   return (
     <Link
       to={`/browse/${item.encodeId}`}

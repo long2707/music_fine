@@ -1,25 +1,32 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ISongAudio } from "constants/interface";
-import useLocalStorge from "hooks/useLocalStorge";
 
 const AudioSongSlice = createSlice({
   name: "aduioSongState",
   initialState: {
-    encodeId: useLocalStorge("sing").getItem(),
-    title: "",
-    artistsNames: "",
-    thumbnail: "",
-    thumbnailM: "",
+    encodeId: "",
+    infoSong: undefined,
     currentTime: 0,
     duration: 0,
     srcAudio: "",
   } as ISongAudio,
   reducers: {
-    setEncodeId: (state, action: PayloadAction<string>) => {
+    setIdSong: (state, action: PayloadAction<string>) => {
       state.encodeId = action.payload;
+    },
+    setInfoSong: (state, action: PayloadAction<any>) => {
+      const { title, artistsNames, thumbnai }: any = action.payload;
+      state.infoSong = { title, artistsNames, thumbnai };
+    },
+    setDuration: (state, action: PayloadAction<number>) => {
+      state.duration = action.payload;
+    },
+    setAudioSrc: (state, action: PayloadAction<string>) => {
+      state.srcAudio = action.payload;
     },
   },
 });
 
-export const { setEncodeId } = AudioSongSlice.actions;
+export const { setIdSong, setInfoSong, setDuration, setAudioSrc } =
+  AudioSongSlice.actions;
 export default AudioSongSlice.reducer;
